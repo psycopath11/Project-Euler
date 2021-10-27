@@ -27,6 +27,7 @@ ll solution(ll n)
 {
     for(int i=1; i<=40; i++ )
     {
+
         if(n%i!=0)
         return -1;
     }
@@ -42,6 +43,7 @@ int main(){
         cin >> n;
         ll result = solution(n);
         cout<<result<<"\n";
+        cout<<" past push checker "<<endl;
     }
     return 0;
 }
