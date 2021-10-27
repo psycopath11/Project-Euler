@@ -22,7 +22,7 @@
 #include <unordered_map>
 
 using namespace std;
-
+#define ll long long
 ll solution(ll n)
 {
     for(int i=1; i<=40; i++ )
