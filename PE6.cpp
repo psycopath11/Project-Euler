@@ -23,29 +23,14 @@
 
 using namespace std;
 #define ll long long
+
 ll solution(ll n)
 {
-    int k=1;
-    ll num;
-    bool result = true;
-    while(true)
-    {
-        result = true;
-        num=n*k;
-        k++;
-    
-    for(int i=2; i<=n; i++ )
-    {
-        if(num%i==0)
-        continue;
-        else 
-        { result = false; break;}
-        
-    }
-    if(result)
-    { return num; break;}
+   ll sum_of_nsq=(n*(n+1))/2;
+   sum_of_nsq*=sum_of_nsq;
+   ll sum_of_sq=(n*(n+1)*(2*n+1))/6;
 
-    }
+   return sum_of_nsq-sum_of_sq;
 }
 
 int main(){

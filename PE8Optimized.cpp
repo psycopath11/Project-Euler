@@ -22,30 +22,29 @@
 #include <unordered_map>
 
 using namespace std;
-#define ll long long
-ll solution(ll n)
-{
-    int k=1;
-    ll num;
-    bool result = true;
-    while(true)
-    {
-        result = true;
-        num=n*k;
-        k++;
-    
-    for(int i=2; i<=n; i++ )
-    {
-        if(num%i==0)
-        continue;
-        else 
-        { result = false; break;}
-        
-    }
-    if(result)
-    { return num; break;}
+#define ll  long long  
 
-    }
+
+
+
+
+ll solution(ll n, ll k,string num)
+{   
+  ll max=0;
+  ll prod=1;
+  for(int i=0; i<n; i++)
+  {
+    prod=1;
+    if(i+k>n)
+    break;
+    for(int j=i; j<k+i; j++)
+    prod*=num[j]-'0';
+
+    if(prod>max)
+    max=prod;
+  }
+   
+return max;
 }
 
 int main(){
@@ -54,9 +53,11 @@ int main(){
     int t;
     cin >> t;
     for(int a0 = 0; a0 < t; a0++){
-        long n;
-        cin >> n;
-        ll result = solution(n);
+        long n,k; // n is no of digits // k is no of consecutive digits to choose
+        cin >> n >> k;
+        string num;
+        cin>>num;
+        ll result = solution(n,k,num);
         cout<<result<<"\n";
         
     }

@@ -23,28 +23,25 @@
 
 using namespace std;
 #define ll long long
-ll solution(ll n)
-{
-    int k=1;
-    ll num;
-    bool result = true;
-    while(true)
-    {
-        result = true;
-        num=n*k;
-        k++;
-    
-    for(int i=2; i<=n; i++ )
-    {
-        if(num%i==0)
-        continue;
-        else 
-        { result = false; break;}
-        
-    }
-    if(result)
-    { return num; break;}
+ vector<ll> arr;
+ vector<ll> prod;
 
+void solution()
+{
+    int p;
+    float q;
+   
+    for(int a=1; a<3000; a++)
+    {
+        for (int b = 1; b <3000; b++)
+        {
+            p=sqrt((a*a)+(b*b));
+            q=sqrt((a*a)+(b*b));
+
+            if(p==q)
+            {arr.push_back(a+b+p);prod.push_back(a*b*p);}
+        }
+        
     }
 }
 
@@ -53,12 +50,21 @@ int main(){
     ios_base::sync_with_stdio(false);
     int t;
     cin >> t;
+    solution();
     for(int a0 = 0; a0 < t; a0++){
         long n;
         cin >> n;
-        ll result = solution(n);
-        cout<<result<<"\n";
+        ll max=-1;
+        for(int i=0; i<arr.size(); i++)
+        {
+            if(arr[i]==n)
+            {
+                if(prod[i]>max)
+                max=prod[i];
+            }
+        }
+        cout<<max<<"\n";
         
-    }
+}
     return 0;
 }

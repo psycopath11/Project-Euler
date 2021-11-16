@@ -23,29 +23,36 @@
 
 using namespace std;
 #define ll long long
+
+bool isPrime(int n)
+{
+  
+    if (n <= 1)
+        return false;
+ 
+    
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+
+
 ll solution(ll n)
 {
-    int k=1;
-    ll num;
-    bool result = true;
-    while(true)
+    int count =0;
+    ll i=2;   ll num=0;
+    while(count !=n)
     {
-        result = true;
-        num=n*k;
-        k++;
-    
-    for(int i=2; i<=n; i++ )
-    {
-        if(num%i==0)
-        continue;
-        else 
-        { result = false; break;}
-        
+         if(isPrime(i))
+         {
+             count++;
+            num=i;
+         }
+         i++;
     }
-    if(result)
-    { return num; break;}
-
-    }
+    return num;
 }
 
 int main(){
